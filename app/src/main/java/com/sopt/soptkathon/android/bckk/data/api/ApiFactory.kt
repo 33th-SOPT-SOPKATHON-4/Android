@@ -42,4 +42,6 @@ object ApiFactory {
     inline fun <reified T> create(): T = retrofit.create(T::class.java)
 }
 
-object ServicePool {}
+object ServicePool {
+    val sampleService: SampleService by lazy { ApiFactory.create() }
+}

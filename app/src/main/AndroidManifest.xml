@@ -12,7 +12,10 @@
         android:theme="@style/Theme.SoptkathonThirtyThreeAndroidFour"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.main.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -24,8 +27,7 @@
         <activity
             android:name=".ui.ComposeActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.SoptkathonThirtyThreeAndroidFour" />
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
