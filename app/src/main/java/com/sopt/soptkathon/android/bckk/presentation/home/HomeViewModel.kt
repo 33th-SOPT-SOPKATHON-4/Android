@@ -13,7 +13,9 @@ class HomeViewModel : ViewModel() {
 
     private val _ticketCount = MutableLiveData<Int>()
     val ticketCount: LiveData<Int> get() = _ticketCount
-    val isGoArticleButtonClicked = MutableLiveData<Boolean>()
+
+    private val _isGoArticleButtonClicked = MutableLiveData<Boolean>()
+    val isGoArticleButtonClicked: LiveData<Boolean> get() = _isGoArticleButtonClicked
 
     // api로 뽑아야 하는 정보 : 티켓수만! 티켓수가 1개 이상이면 자랑하기 이동 가능, 버튼 활성화
     fun getUserInfo(userId: String) {
@@ -25,14 +27,10 @@ class HomeViewModel : ViewModel() {
                 val ticketCount: Int = UserResponse().userDto.ticketCount
                 _ticketCount.value = ticketCount
 
-                isGoArticleButtonClicked.value = ticketCount > 0
+                _isGoArticleButtonClicked.value = ticketCount > 0
             }.onFailure {
                 Log.e("NetworkTest", "error:$it")
             }
         }
-    }
-
-    fun onClickGoArticleBtn() {
-        isGoArticleButtonClicked.value = true
     }
 }
