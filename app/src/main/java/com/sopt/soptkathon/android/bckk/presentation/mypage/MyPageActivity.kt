@@ -2,15 +2,16 @@ package com.sopt.soptkathon.android.bckk.presentation.mypage
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sopt.soptkathon.android.bckk.R
 import com.sopt.soptkathon.android.bckk.base.BindActivity
+import com.sopt.soptkathon.android.bckk.data.sharedpreference.SharedPreferenceContainer
 import com.sopt.soptkathon.android.bckk.databinding.ActivityMyPageBinding
 
 class MyPageActivity : BindActivity<ActivityMyPageBinding>() {
 
-    private lateinit var viewModel: MyPageViewModel
+    private val viewModel by viewModels<MyPageViewModel>()
     private lateinit var myPageAdapter: MyPageAdapter
 
     override fun setBinding(layoutInflater: LayoutInflater): ActivityMyPageBinding {
@@ -23,25 +24,23 @@ class MyPageActivity : BindActivity<ActivityMyPageBinding>() {
         binding = ActivityMyPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        viewModel = ViewModelProvider(this)[MyPageViewModel::class.java]
+        myPageAdapter = MyPageAdapter()
 
         viewModel.userDto.observe(this) { userDto ->
-            val numberOfUploadedArticle = userDto.postListDto.size
+            val numberOfUploadedArticle = userDto.postList.size
             setLevelImage(numberOfUploadedArticle)
-            binding.tvMyPageIntro.text = "${userDto.nickName}님은 ${numberOfUploadedArticle}번 자랑했어요!"
+            binding.tvMyPageIntro.text = "${userDto.nickname}님은 ${numberOfUploadedArticle}번 자랑했어요!"
         }
 
         viewModel.postDtoList.observe(this) { postList ->
-            myPageAdapter = MyPageAdapter(postList)
+            myPageAdapter.submitList(postList)
             binding.rvMyPageUploaded.apply {
                 layoutManager = LinearLayoutManager(this@MyPageActivity)
                 adapter = myPageAdapter
             }
         }
 
-        val ssaId = ""
-        viewModel.getUserInfo(ssaId)
+        viewModel.getUserInfo(SharedPreferenceContainer.getLocalUserId() ?: "")
     }
 
     private fun setLevelImage(numberOfUploadedArticle: Int) {
@@ -54,5 +53,4 @@ class MyPageActivity : BindActivity<ActivityMyPageBinding>() {
             }
         }
     }
-
 }

@@ -5,8 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class LoginResponse(
-    @SerialName("dislikeReactionCount")
-    val dislikeReactionCount: Int = 0,
+    @SerialName("dislikeCount")
+    val dislikeCount: Int = 0,
     @SerialName("nickname")
     val nickname: String = "",
     @SerialName("ssaId")

@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.SoptkathonThirtyThreeAndroidFour" parent="Theme.Material3.Light.NoActionBar" />
+    <style name="Theme.SoptkathonThirtyThreeAndroidFour" parent="Theme.Material3.Light.NoActionBar" >
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/white</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_background</item>
+        <item name="windowSplashScreenBackground">#121212</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/applogo</item>
         <item name="postSplashScreenTheme">@style/Theme.SoptkathonThirtyThreeAndroidFour</item>
     </style>
+
+    <style name="Radius10">
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="Widget.Material3.Button.Basic" parent="">
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="Widget.FullButton.Basic" parent="Widget.Material3.Button.Basic">
+        <item name="materialThemeOverlay">@android:color/transparent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:height">56dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
 </resources>

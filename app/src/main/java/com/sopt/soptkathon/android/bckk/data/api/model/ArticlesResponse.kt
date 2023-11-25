@@ -17,7 +17,7 @@ data class ArticlesResponse(
         @SerialName("postDislikeReactionCount")
         val postDislikeReactionCount: Int = 0,
         @SerialName("postId")
-        val postId: String = "",
+        val postId: Long,
         @SerialName("postImg")
         val postImg: String = "",
     )

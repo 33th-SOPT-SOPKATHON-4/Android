@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.home.HomeActivity"
-    android:background="#121212">
+    android:background="#121212"
+    tools:context=".presentation.home.HomeActivity">
 
     <ImageView
         android:id="@+id/iv_home_app_logo"
@@ -26,9 +26,9 @@
 
         android:contentDescription="마이페이지 가기 버튼"
         android:src="@drawable/ic_home_user"
+        app:layout_constraintBottom_toBottomOf="@+id/ll_home_ticket"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ll_home_ticket"
-        app:layout_constraintBottom_toBottomOf="@+id/ll_home_ticket"/>
+        app:layout_constraintTop_toTopOf="@+id/ll_home_ticket" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ll_home_ticket"
@@ -55,23 +55,21 @@
             android:src="@drawable/ic_ticket"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tv_home_ticket_count"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_home_ticket_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left|center"
+            android:text="1"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/ll_home_ticket"
-            android:text="1"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -89,27 +87,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/tv_home_btn_1"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="현재 자랑 티켓이 00개 모였어요!"-->
-<!--        android:textColor="@color/white"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/ib_home_go_selector"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/ib_home_go_selector"-->
-<!--        android:layout_marginBottom="2dp"-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_home_btn_1"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="현재 자랑 티켓이 00개 모였어요!"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/ib_home_go_selector"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/ib_home_go_selector"-->
+    <!--        android:layout_marginBottom="2dp"-->
 
-<!--        />-->
+    <!--        />-->
 
-<!--    <ImageView-->
-<!--        android:id="@+id/ic_arrow1"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/ic_btn_arrow"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/ib_home_go_selector"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/ib_home_go_selector"-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/ic_arrow1"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:src="@drawable/ic_btn_arrow"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/ib_home_go_selector"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/ib_home_go_selector"-->
 
-<!--        />-->
+    <!--        />-->
 
     <ImageView
         android:id="@+id/ib_home_go_add_article"
@@ -128,23 +126,20 @@
         android:id="@+id/tv_home_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="현재 자랑 티켓이 00개 모였어요!"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tv_home_2"
         android:layout_marginBottom="2dp"
-        />
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/tv_home_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_home_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="79dp"
         android:text="나를 한 번 자랑해 볼까요?"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="79dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

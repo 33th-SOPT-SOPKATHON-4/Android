@@ -11,7 +11,6 @@ class MyApplication : Application() {
         super.onCreate()
         myApplicationInstance = this
         sharedPreferencesInstance = SharedPreferenceContainer.getAppPreferences(this)
-        ApiFactory.retrofit = ApiFactory.getRetrofit(BuildConfig.BASE_URL)
     }
 
     companion object {
