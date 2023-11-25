@@ -64,13 +64,11 @@
 
     <ImageButton
         android:id="@+id/ib_home_go_add_article"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="200dp"
         android:contentDescription="자랑하기  버튼"
-
         android:src="@drawable/ic_launcher_foreground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
