@@ -1,17 +1,24 @@
 package com.sopt.soptkathon.android.bckk.presentation.selector
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sopt.soptkathon.android.bckk.data.api.ServicePool
 import com.sopt.soptkathon.android.bckk.data.api.model.ArticlesResponse
+import com.sopt.soptkathon.android.bckk.data.api.model.BaseResponse
+import com.sopt.soptkathon.android.bckk.data.api.model.PostDisLikeRequest
+import com.sopt.soptkathon.android.bckk.data.sharedpreference.SharedPreferenceContainer
+import com.sopt.soptkathon.android.bckk.data.sharedpreference.sharedPreferences
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 class SelectorViewModel : ViewModel() {
-    private val _currentPage = MutableStateFlow<Int?>(0)
+    private val _currentPage = MutableStateFlow<Int>(0)
     val currentPage get() = _currentPage.asStateFlow()
     private val _firstSelect = MutableStateFlow<Long?>(null)
     val firstSelect get() = _firstSelect.asStateFlow()
@@ -19,6 +26,25 @@ class SelectorViewModel : ViewModel() {
     val secondSelect = _secondSelect.asStateFlow()
     private val _thirdSelect = MutableStateFlow<Long?>(null)
     val thirdSelect = _thirdSelect.asStateFlow()
+    private val _articleList = MutableStateFlow<List<ArticlesResponse.PostDto>>(listOf())
+    val articleList = _articleList.asStateFlow()
+    private val _postDislikeState = MutableStateFlow(false)
+    val postDislikeState = _postDislikeState.asStateFlow()
+
+    val selectedFlow: StateFlow<Long?> = combine(
+        currentPage,
+        firstSelect,
+        secondSelect,
+        thirdSelect
+    ) { currentPage, firstSelect, secondSelect, thirdSelect ->
+        when (currentPage) {
+            0 -> firstSelect
+            1 -> secondSelect
+            2 -> thirdSelect
+            else -> null
+        }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
+
     val isSelectorBtnEnabled: StateFlow<Boolean> = combine(
         currentPage,
         firstSelect,
@@ -33,92 +59,9 @@ class SelectorViewModel : ViewModel() {
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), false)
 
-    val dummyPost = listOf(
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "11111",
-            postDislikeReactionCount = 0,
-            postId = 1,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "22222",
-            postDislikeReactionCount = 0,
-            postId = 2,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "33333",
-            postDislikeReactionCount = 0,
-            postId = 3,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "44444",
-            postDislikeReactionCount = 0,
-            postId = 4,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "55555",
-            postDislikeReactionCount = 0,
-            postId = 5,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "66666",
-            postDislikeReactionCount = 0,
-            postId = 6,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "77777",
-            postDislikeReactionCount = 0,
-            postId = 7,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "88888",
-            postDislikeReactionCount = 0,
-            postId = 8,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "99999",
-            postDislikeReactionCount = 0,
-            postId = 9,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "10101010",
-            postDislikeReactionCount = 0,
-            postId = 10,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "111111111",
-            postDislikeReactionCount = 0,
-            postId = 11,
-            postImg = ""
-        ),
-        ArticlesResponse.PostDto(
-            createdDateTime = "",
-            postContent = "12",
-            postDislikeReactionCount = 0,
-            postId = 12,
-            postImg = ""
-        )
-    )
+    init {
+        getArticles()
+    }
 
     fun setCurrentPage(position: Int) {
         _currentPage.value = position
@@ -134,5 +77,37 @@ class SelectorViewModel : ViewModel() {
 
     fun setThirdSelect(position: Long) {
         _thirdSelect.value = position
+    }
+
+    fun modifySelectedValue(newValue: Long) {
+        when (currentPage.value) {
+            0 -> _firstSelect.value = newValue
+            1 -> _secondSelect.value = newValue
+            2 -> _thirdSelect.value = newValue
+        }
+    }
+
+    fun getArticles() {
+        viewModelScope.launch {
+            runCatching {
+                ServicePool.heungService.getArticles(SharedPreferenceContainer.getLocalUserId())
+            }.onSuccess { value: BaseResponse<ArticlesResponse> ->
+                _articleList.value = value.data.postListDto
+            }.onFailure { exception: Throwable ->
+                Log.e("exception", exception.message.toString())
+            }
+        }
+    }
+
+    fun postDisLike(requestBody: PostDisLikeRequest) {
+        viewModelScope.launch {
+            runCatching {
+                ServicePool.heungService.postDislike(SharedPreferenceContainer.getLocalUserId(), requestBody)
+            }.onSuccess {
+                _postDislikeState.value = true
+            }.onFailure {
+                _postDislikeState.value = false
+            }
+        }
     }
 }

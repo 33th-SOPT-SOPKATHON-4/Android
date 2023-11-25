@@ -1,15 +1,14 @@
 package com.sopt.soptkathon.android.bckk.presentation.selector
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
-import com.sopt.soptkathon.android.bckk.R
 import com.sopt.soptkathon.android.bckk.base.BindActivity
+import com.sopt.soptkathon.android.bckk.data.api.model.PostDisLikeRequest
 import com.sopt.soptkathon.android.bckk.databinding.ActivitySelectorBinding
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -59,7 +58,21 @@ class SelectorActivity : BindActivity<ActivitySelectorBinding>() {
         binding.btnSelectorJealous.setOnClickListener {
             when (binding.vpSelectorContainer.currentItem) {
                 2 -> {
-
+                    viewModel.firstSelect.value?.let { firstSelect ->
+                        viewModel.secondSelect.value?.let { secondSelect ->
+                            viewModel.thirdSelect.value?.let { thirdSelect ->
+                                viewModel.postDisLike(
+                                    PostDisLikeRequest(
+                                        listOf(
+                                            firstSelect,
+                                            secondSelect,
+                                            thirdSelect
+                                        )
+                                    )
+                                )
+                            }
+                        }
+                    }
                 }
 
                 else -> {
@@ -74,12 +87,17 @@ class SelectorActivity : BindActivity<ActivitySelectorBinding>() {
             currentPage?.let {
                 binding.tvSelectorPageNumber.text = setPageText(it + 1)
             }
-            Log.e("ㅋㅋ", viewModel.firstSelect.value.toString() + " " + viewModel.secondSelect.value.toString() + " " + viewModel.thirdSelect.value.toString())
         }.launchIn(lifecycleScope)
 
         viewModel.isSelectorBtnEnabled.flowWithLifecycle(lifecycle).onEach { isSelectorBtnEnabled ->
             binding.btnSelectorJealous.isEnabled = isSelectorBtnEnabled
         }.launchIn(lifecycleScope)
+
+        viewModel.postDislikeState.flowWithLifecycle(lifecycle).onEach { postDislikeState ->
+            if (postDislikeState) {
+
+            }
+        }
     }
 
     private fun setPageText(currentPage: Int): String {
