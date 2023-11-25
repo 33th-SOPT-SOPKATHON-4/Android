@@ -10,6 +10,7 @@ class MainViewModel : ViewModel() {
 
     fun login(androidId: String) {
         viewModelScope.launch {
+            Log.d("MainViewModel", "login: $androidId")
             runCatching {
                 ServicePool.heungService.login(androidId)
             }.onSuccess {
