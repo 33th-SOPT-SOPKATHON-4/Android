@@ -76,6 +76,8 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
 
+    implementation "androidx.core:core-splashscreen:1.0.0"
+
     //coil
     implementation "io.coil-kt:coil:2.4.0"
 
@@ -106,4 +108,8 @@ dependencies {
 
     //lifeCycle
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+
+    //security crypto
+    implementation 'androidx.security:security-crypto-ktx:1.1.0-alpha06'
+
 }
