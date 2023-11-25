@@ -25,7 +25,8 @@ class MyPageActivity : BindActivity<ActivityMyPageBinding>() {
         viewModel = ViewModelProvider(this)[MyPageViewModel::class.java]
 
         viewModel.userDto.observe(this) { userDto ->
-            binding.tvMyPageIntro.text = "${userDto.nickName}님의 자랑들이에요!"
+            val numberOfUploadedArticle = userDto.postListDto.size
+            binding.tvMyPageIntro.text = "${userDto.nickName}님은 ${numberOfUploadedArticle}번 자랑했어요!"
         }
 
         viewModel.postDtoList.observe(this) { postList ->

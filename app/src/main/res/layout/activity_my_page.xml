@@ -10,11 +10,10 @@
         android:id="@+id/iv_my_page_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:importantForAccessibility="no"
-        app:layout_constraintEnd_toEndOf="@id/tv_my_page_title"
-        app:layout_constraintStart_toStartOf="@id/tv_my_page_title"
-        app:layout_constraintTop_toBottomOf="@id/tv_my_page_title" />
+        app:layout_constraintEnd_toEndOf="@id/tv_my_page_intro"
+        app:layout_constraintStart_toStartOf="@id/tv_my_page_intro"
+        app:layout_constraintBottom_toTopOf="@id/tv_my_page_intro" />
 
     <TextView
         android:id="@+id/tv_my_page_title"
