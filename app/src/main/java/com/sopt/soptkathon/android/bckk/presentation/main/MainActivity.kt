@@ -26,7 +26,6 @@ class MainActivity : BindActivity<ActivityMainBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
         startActivity(Intent(this, AddArticleActivity::class.java))
         initSplashAnimation(splashScreen)
         login()
