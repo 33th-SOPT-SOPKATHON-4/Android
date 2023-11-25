@@ -53,16 +53,16 @@
     </tr>
     <tr align="center">
         <td>
-             <br/>
+            자랑 업로드 뷰<br/>(AddArticleActivity)<br/>
       </td>
        <td>
-            <br/>
+            메인 선택 뷰<br/>(SelectorActivity)<br/>
       </td>
        <td>
-            <br/>
+            진입 뷰<br/>(HomeActivity)<br/>
       </td>
        <td>
-             <br/>
+            자랑 모음 뷰<br/>(MyPageActivity)<br/>
       </td>
     </tr>
 </table>
