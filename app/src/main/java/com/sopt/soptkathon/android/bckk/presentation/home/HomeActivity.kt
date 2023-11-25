@@ -52,10 +52,8 @@ class HomeActivity : BindActivity<ActivityHomeBinding>() {
             this,
         ) { isButtonClicked ->
             binding.ibHomeGoAddArticle.isEnabled = isButtonClicked
-            if (isButtonClicked) {
-                binding.ibHomeGoAddArticle.setImageResource(R.drawable.ic_launcher_foreground)
-            } else {
-                binding.ibHomeGoAddArticle.setImageResource(R.drawable.ic_launcher_background)
+            if (isButtonClicked == false) {
+                binding.ibHomeGoAddArticle.setImageResource(R.drawable.dim_pink)
             }
         }
     }
