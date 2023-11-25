@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#121212"
-    >
+    android:background="#121212">
 
     <ImageView
-        android:id="@+id/iv_my_page_back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:background="#000000"
+        android:id="@+id/iv_my_page_profile"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginBottom="35dp"
         android:importantForAccessibility="no"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/img_level_1"
+        app:layout_constraintEnd_toEndOf="@id/tv_my_page_intro"
+        app:layout_constraintStart_toStartOf="@id/tv_my_page_intro"
+        app:layout_constraintBottom_toTopOf="@id/tv_my_page_intro" />
 
     <TextView
         android:id="@+id/tv_my_page_title"
@@ -25,14 +24,11 @@
         android:layout_marginTop="33dp"
         android:text="내 자랑 모아보기"
         android:textColor="#FFF"
-        android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:lineHeight="25.2sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/tv_my_page_intro"
@@ -41,11 +37,8 @@
         android:layout_marginTop="299dp"
         android:text="오늘까지 감자님의 자랑입니다"
         android:textColor="#FFF"
-        android:textAlignment="center"
-        android:fontFamily="sans-serif"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:lineHeight="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

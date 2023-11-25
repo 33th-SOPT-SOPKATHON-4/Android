@@ -13,7 +13,6 @@
         android:theme="@style/Theme.SoptkathonThirtyThreeAndroidFour"
         android:usesCleartextTraffic="true">
 
-        <!-- MyPageActivity를 앱 실행 시 기본 액티비티로 설정 -->
         <activity
             android:name=".presentation.mypage.MyPageActivity"
             android:exported="true"
@@ -23,28 +22,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".presentation.selector.SelectorActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.home.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.article.AddArticleActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- MainActivity에서는 LAUNCHER intent-filter 제거 -->
         <activity
             android:name=".presentation.main.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.App.Starting">
-            <!-- <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
         </activity>
 
         <activity
