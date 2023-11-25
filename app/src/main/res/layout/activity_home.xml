@@ -9,33 +9,34 @@
 
     <ImageView
         android:id="@+id/iv_home_app_logo"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="110dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="27dp"
         android:contentDescription="앱 로고"
         android:src="@drawable/ic_main_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/ib_home_go_my_page"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="19dp"
+
         android:contentDescription="마이페이지 가기 버튼"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/ic_home_user"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/ll_home_ticket"
+        app:layout_constraintBottom_toBottomOf="@+id/ll_home_ticket"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ll_home_ticket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/bg_tickek_line_white_rect"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="11dp"
+        android:background="@drawable/bg_ticket_frame"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingHorizontal="12dp"
@@ -47,10 +48,11 @@
 
         <ImageView
             android:id="@+id/ic_home_ticket"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:src="@drawable/ic_launcher_foreground"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_ticket"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintTop_toTopOf="parent"
@@ -61,41 +63,88 @@
             android:id="@+id/tv_home_ticket_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
             android:gravity="left|center"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/ll_home_ticket"
-            tools:text="1" />
+            android:text="1"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <ImageButton
+    <ImageView
         android:id="@+id/ib_home_go_selector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="30dp"
         android:contentDescription="질투하기 버튼"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/envy_total_green"
         app:layout_constraintBottom_toTopOf="@+id/ib_home_go_add_article"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
+<!--    <TextView-->
+<!--        android:id="@+id/tv_home_btn_1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="현재 자랑 티켓이 00개 모였어요!"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/ib_home_go_selector"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/ib_home_go_selector"-->
+<!--        android:layout_marginBottom="2dp"-->
+
+<!--        />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ic_arrow1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_btn_arrow"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/ib_home_go_selector"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/ib_home_go_selector"-->
+
+<!--        />-->
+
+    <ImageView
         android:id="@+id/ib_home_go_add_article"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="145dp"
         android:contentDescription="자랑하기  버튼"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/boast_total_pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_home_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현재 자랑 티켓이 00개 모였어요!"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_home_2"
+        android:layout_marginBottom="2dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_home_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나를 한 번 자랑해 볼까요?"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="79dp"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

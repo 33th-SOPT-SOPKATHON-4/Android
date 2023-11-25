@@ -14,6 +14,7 @@ import com.sopt.soptkathon.android.bckk.R
 import com.sopt.soptkathon.android.bckk.base.BindActivity
 import com.sopt.soptkathon.android.bckk.databinding.ActivityMainBinding
 import com.sopt.soptkathon.android.bckk.presentation.article.AddArticleActivity
+import com.sopt.soptkathon.android.bckk.presentation.home.HomeActivity
 
 class MainActivity : BindActivity<ActivityMainBinding>() {
 
@@ -55,6 +56,8 @@ class MainActivity : BindActivity<ActivityMainBinding>() {
                 override fun onAnimationRepeat(animation: Animation) {}
             })
             splashScreenView.startAnimation(fadeOut)
+//            intent = Intent(this, HomeActivity::class.java)
+//            startActivity(intent)
         }
     }
 }
