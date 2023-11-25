@@ -76,7 +76,7 @@
 </table>
 
 ## 📷 ScreenShot
-
+https://github.com/33th-SOPT-SOPKATHON-4/Android/assets/103172971/cce11d3b-8714-42c0-ac16-76b93cf779e8
 
 ## 📝컨벤션 규칙 및 브랜치 전략
 [📘SOPTKATHON Android 4조 노션 페이지 링크📘](https://titanium-antique-5c8.notion.site/82c94939022248c285bfc8b2402c3cdf?pvs=4)
