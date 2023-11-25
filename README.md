@@ -1,8 +1,10 @@
 # 33기 SOPTKATHON Android 4조
 
-## 서비스명: 
+## 💢서비스명 
 
-<h2> (개발자들) </h2>
+## 😠주요기능
+
+<h2> 😱개발자들 </h2>
 
 <table align="center">
     <tr align="center">
@@ -65,9 +67,11 @@
     </tr>
 </table>
 
-## 컨벤션 규칙 및 브랜치 전략
-[노션 페이지 링크](https://titanium-antique-5c8.notion.site/82c94939022248c285bfc8b2402c3cdf?pvs=4)
+## 📝컨벤션 규칙 및 브랜치 전략
+[📘SOPTKATHON Android 4조 노션 페이지 링크📘](https://titanium-antique-5c8.notion.site/82c94939022248c285bfc8b2402c3cdf?pvs=4)
 
 
-## Before 사진
+## 📷Before 사진📷
 ![KakaoTalk_Photo_2023-11-25-20-58-15](https://github.com/33th-SOPT-SOPKATHON-4/Android/assets/93872496/30c79c78-252a-41fb-b4fe-33db98ffb4b6)
+
+## 📷After 사진📷
