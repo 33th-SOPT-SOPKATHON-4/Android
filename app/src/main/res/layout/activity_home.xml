@@ -6,4 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".presentation.home.HomeActivity">
 
+    <ImageView
+        android:id="@+id/iv_home_app_logo"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="앱 로고"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ib_home_go_my_page"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="마이페이지 가기 버튼"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_home_ticket"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="티켓 이미지"
+        app:layout_constraintEnd_toStartOf="@+id/tv_home_ticket_count"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_home_ticket_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_home_ticket"
+        app:layout_constraintEnd_toStartOf="@+id/ib_home_go_my_page"
+        app:layout_constraintTop_toTopOf="@+id/iv_home_ticket"
+        tools:text="1개" />
+
+    <ImageButton
+        android:id="@+id/ib_home_go_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="질투하기 버튼"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/ib_home_go_add_article"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ib_home_go_add_article"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="200dp"
+        android:contentDescription="자랑하기  버튼"
+
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
