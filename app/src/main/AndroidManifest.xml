@@ -12,6 +12,9 @@
         android:theme="@style/Theme.SoptkathonThirtyThreeAndroidFour"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".presentation.selector.SelectorActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.article.AddArticleActivity"
             android:exported="false" />
         <activity
