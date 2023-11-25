@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="299dp"
-        android:text="오늘까지 감자님의 자랑입니다"
+        android:text="OO OOO님은 0번 자랑했어요!"
         android:textColor="#FFF"
         android:textSize="20sp"
         android:textStyle="bold"
