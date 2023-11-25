@@ -13,7 +13,6 @@
         android:theme="@style/Theme.SoptkathonThirtyThreeAndroidFour"
         android:usesCleartextTraffic="true">
 
-        <!-- MyPageActivity를 앱 실행 시 기본 액티비티로 설정 -->
         <activity
             android:name=".presentation.mypage.MyPageActivity"
             android:exported="true"
@@ -27,7 +26,6 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
-        <!-- MainActivity에서는 LAUNCHER intent-filter 제거 -->
         <activity
             android:name=".presentation.main.MainActivity"
             android:exported="true"
