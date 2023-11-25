@@ -13,9 +13,9 @@
         android:layout_marginBottom="35dp"
         android:importantForAccessibility="no"
         android:src="@drawable/img_level_1"
+        app:layout_constraintBottom_toTopOf="@id/tv_my_page_intro"
         app:layout_constraintEnd_toEndOf="@id/tv_my_page_intro"
-        app:layout_constraintStart_toStartOf="@id/tv_my_page_intro"
-        app:layout_constraintBottom_toTopOf="@id/tv_my_page_intro" />
+        app:layout_constraintStart_toStartOf="@id/tv_my_page_intro" />
 
     <TextView
         android:id="@+id/tv_my_page_title"

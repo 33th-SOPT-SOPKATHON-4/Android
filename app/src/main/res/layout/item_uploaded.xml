@@ -8,10 +8,10 @@
         android:id="@+id/iv_item_uploaded_picture"
         android:layout_width="320dp"
         android:layout_height="320dp"
-        android:src="@drawable/rectangle_item_uploaded_blank"
         android:importantForAccessibility="no"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/rectangle_item_uploaded_blank"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -39,10 +39,10 @@
         android:id="@+id/iv_item_uploaded_envy"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:importantForAccessibility="no"
-        android:src="#000"
+        android:src="@drawable/ic_mypage_heung"
         app:layout_constraintEnd_toEndOf="@id/iv_item_uploaded_picture"
         app:layout_constraintTop_toTopOf="@id/iv_item_uploaded_picture" />
 
@@ -51,9 +51,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
+        android:maxLines="1"
         android:text="222"
         android:textColor="#FFF"
-        android:maxLines="1"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/iv_item_uploaded_envy"
