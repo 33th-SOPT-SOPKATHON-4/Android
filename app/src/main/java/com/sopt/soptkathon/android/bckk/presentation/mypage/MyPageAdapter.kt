@@ -2,14 +2,20 @@ package com.sopt.soptkathon.android.bckk.presentation.mypage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.sopt.soptkathon.android.bckk.R
 import com.sopt.soptkathon.android.bckk.data.api.model.UserResponse
 import com.sopt.soptkathon.android.bckk.databinding.ItemUploadedBinding
+import com.sopt.soptkathon.android.bckk.util.ItemDiffCallback
 
-class MyPageAdapter(private val postList: List<UserResponse.PostDto>) :
-    RecyclerView.Adapter<MyPageAdapter.MyPageViewHolder>() {
+class MyPageAdapter : ListAdapter<UserResponse.PostDto, MyPageAdapter.MyPageViewHolder>(
+    ItemDiffCallback<UserResponse.PostDto>(
+        onItemsTheSame = { old, new -> old.postId == new.postId },
+        onContentsTheSame = { old, new -> old == new },
+    ),
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyPageViewHolder {
         val binding =
@@ -18,10 +24,8 @@ class MyPageAdapter(private val postList: List<UserResponse.PostDto>) :
     }
 
     override fun onBindViewHolder(holder: MyPageViewHolder, position: Int) {
-        holder.bind(postList[position])
+        holder.bind(currentList[position])
     }
-
-    override fun getItemCount(): Int = postList.size
 
     inner class MyPageViewHolder(private val binding: ItemUploadedBinding) :
         RecyclerView.ViewHolder(binding.root) {
