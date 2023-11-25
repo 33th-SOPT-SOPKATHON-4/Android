@@ -22,10 +22,9 @@ class HomeActivity : BindActivity<ActivityHomeBinding>() {
         homeViewModel.getUserInfo("userId")
         homeViewModel.userInfoResult.observe(
             this,
-            {
-                binding.tvHomeTicketCount.text = it.toString()
-            },
-        )
+        ) {
+            binding.tvHomeTicketCount.text = it.toString()
+        }
     }
 
     private fun homeClickListener() {
