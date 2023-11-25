@@ -1,4 +1,5 @@
 # 33기 SOPTKATHON Android 4조
+![1024_500](https://github.com/33th-SOPT-SOPKATHON-4/Android/assets/103172971/7c2b7c3e-4160-4b5b-af68-164c3ef5b42b)
 
 ## 💢서비스 이름 및 간단한 소개
 주변 눈치를 보며 겸손해야 하는 이들에게는 자랑의 창구를, 다른 이들의 자랑을 보며 부정적 마음을 가지는 이들에게는 마음껏 부러움을 표출할 수 있는 공간을 마련해주는 서비스, 흥!
@@ -74,6 +75,9 @@
     </tr>
 </table>
 
+## 📷 ScreenShot
+
+
 ## 📝컨벤션 규칙 및 브랜치 전략
 [📘SOPTKATHON Android 4조 노션 페이지 링크📘](https://titanium-antique-5c8.notion.site/82c94939022248c285bfc8b2402c3cdf?pvs=4)
 
@@ -83,11 +87,13 @@
 ┣ 📂 base
 ┣ 📂 data
 ┃ ┣ 📂 api
+┃ ┣ 📂 sharedpreference
 ┣ 📂 presentation
 ┃ ┣ 📂 article
-┃ ┣ 📂 selector
-┃ ┣ 📂 mypage
 ┃ ┣ 📂 home
+┃ ┣ 📂 main
+┃ ┣ 📂 mypage
+┃ ┣ 📂 selector
 ┣ 📂 ui
 ┃ ┣ 📂 theme
 ┣ 📂 util
@@ -97,3 +103,4 @@
 ![KakaoTalk_Photo_2023-11-25-20-58-15](https://github.com/33th-SOPT-SOPKATHON-4/Android/assets/93872496/30c79c78-252a-41fb-b4fe-33db98ffb4b6)
 
 ## 📷After 사진📷
+![KakaoTalk_Photo_2023-11-26-05-40-13](https://github.com/33th-SOPT-SOPKATHON-4/Android/assets/103172971/48f580a3-0096-4c24-b809-bd30eecc1727)
