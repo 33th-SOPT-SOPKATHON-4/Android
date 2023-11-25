@@ -3,7 +3,7 @@ package com.sopt.soptkathon.android.bckk.presentation.main
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sopt.soptkathon.android.bckk.data.api.ServicePool
+import com.sopt.soptkathon.android.bckk.data.sharedpreference.SharedPreferenceContainer
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -12,8 +12,8 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch {
             Log.d("MainViewModel", "login: $androidId")
             runCatching {
-                ServicePool.heungService.login(androidId)
             }.onSuccess {
+                SharedPreferenceContainer.setLocalUserId(androidId)
                 Log.d("MainViewModel", "login: $it")
             }.onFailure {
                 Log.e("MainViewModel", "login: $it")
