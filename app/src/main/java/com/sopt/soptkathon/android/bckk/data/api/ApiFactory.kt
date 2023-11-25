@@ -44,4 +44,5 @@ object ApiFactory {
 
 object ServicePool {
     val sampleService: SampleService by lazy { ApiFactory.create() }
+    val heungService: HeungService by lazy { ApiFactory.create() }
 }

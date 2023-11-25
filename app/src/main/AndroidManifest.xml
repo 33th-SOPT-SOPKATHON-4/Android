@@ -15,7 +15,7 @@
             android:name=".presentation.home.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.login.LoginActivity"
+            android:name=".presentation.article.AddArticleActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.main.MainActivity"
