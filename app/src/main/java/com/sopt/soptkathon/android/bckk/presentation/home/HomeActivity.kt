@@ -52,8 +52,8 @@ class HomeActivity : BindActivity<ActivityHomeBinding>() {
             this,
         ) { isButtonClicked ->
             binding.ibHomeGoAddArticle.isEnabled = isButtonClicked
-            if (isButtonClicked == false) {
-                binding.ibHomeGoAddArticle.setImageResource(R.drawable.dim_pink)
+            if (isButtonClicked) {
+                binding.ibHomeGoAddArticle.setImageResource(R.drawable.boast_total_pink)
             }
         }
     }

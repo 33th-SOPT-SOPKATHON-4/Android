@@ -118,7 +118,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="145dp"
         android:contentDescription="자랑하기  버튼"
-        android:src="@drawable/boast_total_pink"
+        android:src="@drawable/dim_pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
