@@ -64,7 +64,13 @@ class AddArticleActivity : BindActivity<ActivityAddArticleBinding>() {
                 showToast("이미지를 선택해주세요.")
                 return@setOnClickListener
             }
-            viewModel.submitArticle(ContentUriRequestBody(this, imageUri).toFormData())
+            viewModel.submitArticle(
+                ContentUriRequestBody(
+                    context = this,
+                    uri = imageUri,
+                ).toFormData(),
+                content = binding.etContent.text.toString(),
+            )
         }
     }
 

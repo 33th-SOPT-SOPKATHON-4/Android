@@ -11,12 +11,18 @@ import java.util.concurrent.TimeUnit
 
 object ApiFactory {
 
-    lateinit var retrofit: Retrofit
+    val retrofit: Retrofit by lazy {
+        Retrofit.Builder()
+            .baseUrl("http://54.180.48.16:8080")
+            .client(provideOkHttpClient())
+            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+            .build()
+    }
 
     @Synchronized
     fun getRetrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl("http://54.180.48.16:8080")
             .client(provideOkHttpClient())
             .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
             .build()
