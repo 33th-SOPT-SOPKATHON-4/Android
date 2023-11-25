@@ -60,6 +60,9 @@ class HomeActivity : BindActivity<ActivityHomeBinding>() {
             binding.ibHomeGoAddArticle.isEnabled = isButtonClicked
             if (isButtonClicked) {
                 binding.ibHomeGoAddArticle.setImageResource(R.drawable.boast_total_pink)
+            } else {
+                binding.tvHome1.text = "질투나기를 누르면"
+                binding.tvHome2.text = "자랑하기 티켓을 얻을 수 있어요!"
             }
         }
     }
