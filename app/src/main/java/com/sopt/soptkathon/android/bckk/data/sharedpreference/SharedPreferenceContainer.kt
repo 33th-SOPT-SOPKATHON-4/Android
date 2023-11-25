@@ -9,6 +9,7 @@ import java.security.GeneralSecurityException
 import java.security.KeyStore
 
 object SharedPreferenceContainer {
+    private const val SP_USER_ID = "SP_USER_ID"
 
     private const val DEBUG_APP_PREFERENCES_NAME = "do_euijin_debug"
     private const val APP_PREFERENCES_NAME = "do_euijin"
@@ -57,6 +58,14 @@ object SharedPreferenceContainer {
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
         )
+    }
+
+    fun setLocalUserId(value: String) {
+        sharedPreferences.edit().putString(SP_USER_ID, value).apply()
+    }
+
+    fun getLocalUserId() {
+        sharedPreferences.getString(SP_USER_ID, "")
     }
 }
 
