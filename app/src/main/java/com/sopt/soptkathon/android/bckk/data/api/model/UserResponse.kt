@@ -5,34 +5,28 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UserResponse(
-    @SerialName("userDto")
-    val userDto: UserDto = UserDto(),
+    @SerialName("dislikeCount")
+    val dislikeCount: Int = 0,
+    @SerialName("nickname")
+    val nickname: String = "",
+    @SerialName("postList")
+    val postList: List<PostDto> = listOf(),
+    @SerialName("ssaId")
+    val ssaId: String = "",
+    @SerialName("ticketCount")
+    val ticketCount: Int = 0,
 ) {
     @Serializable
-    data class UserDto(
-        @SerialName("dislikeReactionCount")
-        val dislikeReactionCount: Int = 0,
-        @SerialName("nickName")
-        val nickName: String = "",
-        @SerialName("postListDto")
-        val postListDto: List<PostDto> = listOf(),
-        @SerialName("ssaId")
-        val ssaId: String = "",
-        @SerialName("ticketCount")
-        val ticketCount: Int = 0,
-    ) {
-        @Serializable
-        data class PostDto(
-            @SerialName("createdDateTime")
-            val createdDateTime: String = "",
-            @SerialName("postContent")
-            val postContent: String = "",
-            @SerialName("postDislikeReactionCount")
-            val postDislikeReactionCount: Int = 0,
-            @SerialName("postId")
-            val postId: String = "",
-            @SerialName("postImg")
-            val postImg: String = "",
-        )
-    }
+    data class PostDto(
+        @SerialName("createdDateTime")
+        val createdDateTime: String = "",
+        @SerialName("postContent")
+        val postContent: String = "",
+        @SerialName("postDislikeCount")
+        val postDislikeCount: Int = 0,
+        @SerialName("postId")
+        val postId: Long = 0,
+        @SerialName("postImg")
+        val postImg: String = "",
+    )
 }

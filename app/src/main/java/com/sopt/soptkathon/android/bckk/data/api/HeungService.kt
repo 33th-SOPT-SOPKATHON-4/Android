@@ -40,7 +40,7 @@ interface HeungService {
         @Body request: PostDisLikeRequest,
     ): BaseResponse<Unit>
 
-    @GET("/{ssaId}/dislike")
+    @GET("/users/{ssaId}")
     suspend fun getUserInfo(
         @Path("ssaId") ssaId: String,
     ): BaseResponse<UserResponse>

@@ -1,5 +1,6 @@
 package com.sopt.soptkathon.android.bckk.presentation.selector
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.OnBackPressedCallback
@@ -10,6 +11,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.sopt.soptkathon.android.bckk.base.BindActivity
 import com.sopt.soptkathon.android.bckk.data.api.model.PostDisLikeRequest
 import com.sopt.soptkathon.android.bckk.databinding.ActivitySelectorBinding
+import com.sopt.soptkathon.android.bckk.presentation.TwoButtonDialogFragment
+import com.sopt.soptkathon.android.bckk.presentation.article.AddArticleActivity
+import com.sopt.soptkathon.android.bckk.presentation.home.HomeActivity
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -45,8 +49,7 @@ class SelectorActivity : BindActivity<ActivitySelectorBinding>() {
 
         binding.vpSelectorContainer.adapter = selectorViewPagerAdapter
         binding.vpSelectorContainer.isUserInputEnabled = false
-        binding.vpSelectorContainer.registerOnPageChangeCallback(object :
-            ViewPager2.OnPageChangeCallback() {
+        binding.vpSelectorContainer.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 viewModel.setCurrentPage(position)
@@ -66,9 +69,9 @@ class SelectorActivity : BindActivity<ActivitySelectorBinding>() {
                                         listOf(
                                             firstSelect,
                                             secondSelect,
-                                            thirdSelect
-                                        )
-                                    )
+                                            thirdSelect,
+                                        ),
+                                    ),
                                 )
                             }
                         }
@@ -95,9 +98,21 @@ class SelectorActivity : BindActivity<ActivitySelectorBinding>() {
 
         viewModel.postDislikeState.flowWithLifecycle(lifecycle).onEach { postDislikeState ->
             if (postDislikeState) {
-
+                TwoButtonDialogFragment().apply {
+                    setTitleText("자랑하기 티켓이 생겼어요!")
+                    setMessageText("질투하는 마음을 모아 나를 자랑해보세요!")
+                    setOkListener("자랑하러 가기") {
+                        val intent = Intent(this@SelectorActivity, AddArticleActivity::class.java)
+                        startActivity(intent)
+                    }
+                    setCancelListener("계속 질투하기") {
+                        val intent = Intent(this@SelectorActivity, HomeActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    }
+                }.showAllowingStateLoss(supportFragmentManager, "TwoButtonDialogFragment")
             }
-        }
+        }.launchIn(lifecycleScope)
     }
 
     private fun setPageText(currentPage: Int): String {

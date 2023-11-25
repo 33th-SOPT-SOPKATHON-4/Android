@@ -8,7 +8,7 @@ import com.sopt.soptkathon.android.bckk.R
 import com.sopt.soptkathon.android.bckk.data.api.model.UserResponse
 import com.sopt.soptkathon.android.bckk.databinding.ItemUploadedBinding
 
-class MyPageAdapter(private val postList: List<UserResponse.UserDto.PostDto>) :
+class MyPageAdapter(private val postList: List<UserResponse.PostDto>) :
     RecyclerView.Adapter<MyPageAdapter.MyPageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyPageViewHolder {
@@ -26,14 +26,14 @@ class MyPageAdapter(private val postList: List<UserResponse.UserDto.PostDto>) :
     inner class MyPageViewHolder(private val binding: ItemUploadedBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(postDto: UserResponse.UserDto.PostDto) {
+        fun bind(postDto: UserResponse.PostDto) {
             with(binding) {
                 binding.ivItemUploadedPicture.load(postDto.postImg) {
                     crossfade(true)
                     error(R.drawable.rectangle_item_uploaded_blank)
                 }
                 tvItemUploadedDate.text = postDto.createdDateTime
-                tvItemUploadedEnvy.text = postDto.postDislikeReactionCount.toString()
+                tvItemUploadedEnvy.text = postDto.postDislikeCount.toString()
                 tvItemUploadedDescription.text = postDto.postContent
             }
         }

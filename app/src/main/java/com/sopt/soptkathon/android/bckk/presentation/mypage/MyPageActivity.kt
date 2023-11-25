@@ -23,13 +23,12 @@ class MyPageActivity : BindActivity<ActivityMyPageBinding>() {
         binding = ActivityMyPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         viewModel = ViewModelProvider(this)[MyPageViewModel::class.java]
 
         viewModel.userDto.observe(this) { userDto ->
-            val numberOfUploadedArticle = userDto.postListDto.size
+            val numberOfUploadedArticle = userDto.postList.size
             setLevelImage(numberOfUploadedArticle)
-            binding.tvMyPageIntro.text = "${userDto.nickName}님은 ${numberOfUploadedArticle}번 자랑했어요!"
+            binding.tvMyPageIntro.text = "${userDto.nickname}님은 ${numberOfUploadedArticle}번 자랑했어요!"
         }
 
         viewModel.postDtoList.observe(this) { postList ->
@@ -54,5 +53,4 @@ class MyPageActivity : BindActivity<ActivityMyPageBinding>() {
             }
         }
     }
-
 }

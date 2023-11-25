@@ -33,37 +33,46 @@
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
         tools:text="어쩌구 저쩌구" />
 
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="265dp"
+        android:layout_height="165dp"
+        android:src="@drawable/envy3_popup_grapic"
+        app:layout_constraintBottom_toTopOf="@id/btCancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btOk"
+        android:id="@+id/btCancel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="17dp"
         android:background="@drawable/white_button_submit"
         android:padding="14dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btCancel"
+        app:layout_constraintEnd_toStartOf="@id/btOk"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+        app:layout_constraintTop_toBottomOf="@id/ivIcon"
         tools:text="확인" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btCancel"
+        android:id="@+id/btOk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="176dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="17dp"
         android:background="@drawable/enable_button_submit"
         android:padding="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btOk"
-        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+        app:layout_constraintStart_toEndOf="@id/btCancel"
+        app:layout_constraintTop_toTopOf="@id/btCancel"
         tools:text="취소" />
 
 

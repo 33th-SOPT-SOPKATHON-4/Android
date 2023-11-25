@@ -72,9 +72,9 @@ class TwoButtonDialogFragment : BaseViewBindingDialogFragment<FragmentTwobuttonD
     }
 
     private fun FragmentTwobuttonDialogBinding.initCancelButton() {
-        okButtonText?.let { btOk.text = it } ?: run { btOk.isGone = true }
-        btOk.setOnClickListener {
-            okListener?.invoke()
+        cancelButtonText?.let { btCancel.text = it } ?: run { btCancel.isGone = true }
+        btCancel.setOnClickListener {
+            cancelListener?.invoke()
             dismissAllowingStateLoss()
         }
     }

@@ -48,7 +48,7 @@ class SelectorFragment() : BindFragment<FragmentSelectorBinding>() {
                             else -> Unit
                         }
                     }
-                    ivSelectorItem.load(postList[FIRST].postContent)
+                    ivSelectorItem.load(postList[FIRST].postImg)
                     tvSelectorContext.text = postList[FIRST].postContent
                 }
 
@@ -61,7 +61,7 @@ class SelectorFragment() : BindFragment<FragmentSelectorBinding>() {
                             else -> Unit
                         }
                     }
-                    ivSelectorItem.load(postList[SECOND].postContent)
+                    ivSelectorItem.load(postList[SECOND].postImg)
                     tvSelectorContext.text = postList[SECOND].postContent
                 }
 
@@ -74,7 +74,7 @@ class SelectorFragment() : BindFragment<FragmentSelectorBinding>() {
                             else -> Unit
                         }
                     }
-                    ivSelectorItem.load(postList[THIRD].postContent)
+                    ivSelectorItem.load(postList[THIRD].postImg)
                     tvSelectorContext.text = postList[THIRD].postContent
                 }
 
@@ -87,80 +87,104 @@ class SelectorFragment() : BindFragment<FragmentSelectorBinding>() {
                             else -> Unit
                         }
                     }
-                    ivSelectorItem.load(postList[FOURTH].postContent)
+                    ivSelectorItem.load(postList[FOURTH].postImg)
                     tvSelectorContext.text = postList[FOURTH].postContent
                 }
 
                 with(binding) {
+                    includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                    includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                    includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                    includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.INVISIBLE
                     includeSelectorItemFirst.layoutSelectorItem.isSelected = viewModel.firstSelect.value == postList[FIRST].postId
                     if (viewModel.firstSelect.value == postList[FIRST].postId) includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                     includeSelectorItemSecond.layoutSelectorItem.isSelected = viewModel.firstSelect.value == postList[SECOND].postId
                     if (viewModel.firstSelect.value == postList[SECOND].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                     includeSelectorItemThird.layoutSelectorItem.isSelected = viewModel.firstSelect.value == postList[THIRD].postId
-                    if (viewModel.firstSelect.value == postList[THIRD].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                    if (viewModel.firstSelect.value == postList[THIRD].postId) includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                     includeSelectorItemFourth.layoutSelectorItem.isSelected = viewModel.firstSelect.value == postList[FOURTH].postId
-                    if (viewModel.firstSelect.value == postList[FOURTH].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                    if (viewModel.firstSelect.value == postList[FOURTH].postId) includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 }
 
                 with(binding) {
+                    includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                    includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                    includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                    includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.INVISIBLE
                     includeSelectorItemFirst.layoutSelectorItem.isSelected = viewModel.secondSelect.value == postList[FIRST].postId
                     if (viewModel.secondSelect.value == postList[FIRST].postId) includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                     includeSelectorItemSecond.layoutSelectorItem.isSelected = viewModel.secondSelect.value == postList[SECOND].postId
                     if (viewModel.secondSelect.value == postList[SECOND].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                     includeSelectorItemThird.layoutSelectorItem.isSelected = viewModel.secondSelect.value == postList[THIRD].postId
-                    if (viewModel.secondSelect.value == postList[THIRD].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                    if (viewModel.secondSelect.value == postList[THIRD].postId) includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                     includeSelectorItemFourth.layoutSelectorItem.isSelected = viewModel.secondSelect.value == postList[FOURTH].postId
-                    if (viewModel.secondSelect.value == postList[FOURTH].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                    if (viewModel.secondSelect.value == postList[FOURTH].postId) includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 }
 
                 with(binding) {
+                    includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                    includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                    includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                    includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.INVISIBLE
                     includeSelectorItemFirst.layoutSelectorItem.isSelected = viewModel.thirdSelect.value == postList[FIRST].postId
-                    if (viewModel.thirdSelect.value == postList[FIRST].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                    if (viewModel.thirdSelect.value == postList[FIRST].postId) includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                     includeSelectorItemSecond.layoutSelectorItem.isSelected = viewModel.thirdSelect.value == postList[SECOND].postId
                     if (viewModel.thirdSelect.value == postList[SECOND].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                     includeSelectorItemThird.layoutSelectorItem.isSelected = viewModel.thirdSelect.value == postList[THIRD].postId
-                    if (viewModel.thirdSelect.value == postList[THIRD].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                    if (viewModel.thirdSelect.value == postList[THIRD].postId) includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                     includeSelectorItemFourth.layoutSelectorItem.isSelected = viewModel.thirdSelect.value == postList[FOURTH].postId
-                    if (viewModel.thirdSelect.value == postList[FOURTH].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                    if (viewModel.thirdSelect.value == postList[FOURTH].postId) includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 }
             }.launchIn(lifecycleScope)
 
         viewModel.firstSelect.flowWithLifecycle(viewLifecycleOwner.lifecycle).onEach { firstSelect ->
             with(binding) {
+                includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.INVISIBLE
                 includeSelectorItemFirst.layoutSelectorItem.isSelected = viewModel.firstSelect.value == postList[FIRST].postId
                 if (viewModel.firstSelect.value == postList[FIRST].postId) includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 includeSelectorItemSecond.layoutSelectorItem.isSelected = viewModel.firstSelect.value == postList[SECOND].postId
                 if (viewModel.firstSelect.value == postList[SECOND].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 includeSelectorItemThird.layoutSelectorItem.isSelected = viewModel.firstSelect.value == postList[THIRD].postId
-                if (viewModel.firstSelect.value == postList[THIRD].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                if (viewModel.firstSelect.value == postList[THIRD].postId) includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 includeSelectorItemFourth.layoutSelectorItem.isSelected = viewModel.firstSelect.value == postList[FOURTH].postId
-                if (viewModel.firstSelect.value == postList[FOURTH].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                if (viewModel.firstSelect.value == postList[FOURTH].postId) includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
             }
         }.launchIn(lifecycleScope)
 
         viewModel.secondSelect.flowWithLifecycle(viewLifecycleOwner.lifecycle).onEach { secondSelect ->
             with(binding) {
+                includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.INVISIBLE
                 includeSelectorItemFirst.layoutSelectorItem.isSelected = viewModel.secondSelect.value == postList[FIRST].postId
                 if (viewModel.secondSelect.value == postList[FIRST].postId) includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 includeSelectorItemSecond.layoutSelectorItem.isSelected = viewModel.secondSelect.value == postList[SECOND].postId
                 if (viewModel.secondSelect.value == postList[SECOND].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 includeSelectorItemThird.layoutSelectorItem.isSelected = viewModel.secondSelect.value == postList[THIRD].postId
-                if (viewModel.secondSelect.value == postList[THIRD].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                if (viewModel.secondSelect.value == postList[THIRD].postId) includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 includeSelectorItemFourth.layoutSelectorItem.isSelected = viewModel.secondSelect.value == postList[FOURTH].postId
-                if (viewModel.secondSelect.value == postList[FOURTH].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                if (viewModel.secondSelect.value == postList[FOURTH].postId) includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
             }
         }.launchIn(lifecycleScope)
 
         viewModel.thirdSelect.flowWithLifecycle(viewLifecycleOwner.lifecycle).onEach { thirdSelect ->
             with(binding) {
+                includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.INVISIBLE
+                includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.INVISIBLE
                 includeSelectorItemFirst.layoutSelectorItem.isSelected = viewModel.thirdSelect.value == postList[FIRST].postId
-                if (viewModel.thirdSelect.value == postList[FIRST].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                if (viewModel.thirdSelect.value == postList[FIRST].postId) includeSelectorItemFirst.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 includeSelectorItemSecond.layoutSelectorItem.isSelected = viewModel.thirdSelect.value == postList[SECOND].postId
                 if (viewModel.thirdSelect.value == postList[SECOND].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 includeSelectorItemThird.layoutSelectorItem.isSelected = viewModel.thirdSelect.value == postList[THIRD].postId
-                if (viewModel.thirdSelect.value == postList[THIRD].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                if (viewModel.thirdSelect.value == postList[THIRD].postId) includeSelectorItemThird.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
                 includeSelectorItemFourth.layoutSelectorItem.isSelected = viewModel.thirdSelect.value == postList[FOURTH].postId
-                if (viewModel.thirdSelect.value == postList[FOURTH].postId) includeSelectorItemSecond.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
+                if (viewModel.thirdSelect.value == postList[FOURTH].postId) includeSelectorItemFourth.ivSelectorSelectedIcon.visibility = View.VISIBLE else View.INVISIBLE
             }
         }.launchIn(lifecycleScope)
     }

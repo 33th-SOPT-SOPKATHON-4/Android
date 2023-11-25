@@ -5,7 +5,7 @@
     android:id="@+id/layout_selector_item"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/selector_selector_filter_button">
+    android:foreground="@drawable/selector_selector_filter_button">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_selector_item"
@@ -25,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_selector_select"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/iv_selector_item"
         app:layout_constraintStart_toStartOf="parent"

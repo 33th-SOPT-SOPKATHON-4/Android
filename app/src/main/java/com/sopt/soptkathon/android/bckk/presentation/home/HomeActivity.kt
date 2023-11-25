@@ -1,14 +1,21 @@
 package com.sopt.soptkathon.android.bckk.presentation.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.sopt.soptkathon.android.bckk.R
 import com.sopt.soptkathon.android.bckk.base.BindActivity
 import com.sopt.soptkathon.android.bckk.databinding.ActivityHomeBinding
 import com.sopt.soptkathon.android.bckk.presentation.article.AddArticleActivity
 import com.sopt.soptkathon.android.bckk.presentation.mypage.MyPageActivity
+import com.sopt.soptkathon.android.bckk.presentation.selector.SelectorActivity
 
 class HomeActivity : BindActivity<ActivityHomeBinding>() {
     private val homeViewModel by viewModels<HomeViewModel>()
@@ -18,43 +25,68 @@ class HomeActivity : BindActivity<ActivityHomeBinding>() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        initSplashAnimation(splashScreen)
+        login()
+
         binding.run {
             ibHomeGoMyPage.setOnClickListener {
-                // TODO 마이페이지 화면 전환
-                intent = Intent(applicationContext, MyPageActivity::class.java)
+                val intent = Intent(applicationContext, MyPageActivity::class.java)
                 startActivity(intent)
             }
 
             ibHomeGoAddArticle.setOnClickListener {
-                // TODO 게시글 작성 화면 전환
-                intent = Intent(applicationContext, AddArticleActivity::class.java)
+                val intent = Intent(applicationContext, AddArticleActivity::class.java)
                 startActivity(intent)
             }
 
             ibHomeGoSelector.setOnClickListener {
-                // TODO 질투 선택 화면 전환
-            }
-            tvHomeTicketCount.setOnClickListener {
-                // 티켓 수
+                val intent = Intent(applicationContext, SelectorActivity::class.java)
+                startActivity(intent)
             }
         }
-
-        homeViewModel.getUserInfo("userId") // TODO 유저 아이디 추가 String
         homeViewModel.ticketCount.observe(
             this,
         ) { ticketCount ->
+            binding.tvHome1.text = getString(R.string.test, ticketCount)
             binding.tvHomeTicketCount.text = ticketCount.toString()
         }
         homeViewModel.isGoArticleButtonClicked.observe(
             this,
         ) { isButtonClicked ->
             binding.ibHomeGoAddArticle.isEnabled = isButtonClicked
-            if (isButtonClicked == false) {
-                binding.ibHomeGoAddArticle.setImageResource(R.drawable.dim_pink)
+            if (isButtonClicked) {
+                binding.ibHomeGoAddArticle.setImageResource(R.drawable.boast_total_pink)
             }
+        }
+    }
+
+    @SuppressLint("HardwareIds")
+    private fun login() {
+        val androidId = Settings.Secure.getString(
+            contentResolver,
+            Settings.Secure.ANDROID_ID,
+        ) ?: return
+        homeViewModel.login(androidId)
+    }
+
+    private fun initSplashAnimation(splashScreen: SplashScreen) {
+        splashScreen.setOnExitAnimationListener { splashScreenViewProvider ->
+            val splashScreenView = splashScreenViewProvider.view
+            val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+
+            fadeOut.setAnimationListener(object : Animation.AnimationListener {
+                override fun onAnimationStart(animation: Animation) {}
+                override fun onAnimationEnd(animation: Animation) {
+                    splashScreenViewProvider.remove()
+                }
+
+                override fun onAnimationRepeat(animation: Animation) {}
+            })
+            splashScreenView.startAnimation(fadeOut)
         }
     }
 }

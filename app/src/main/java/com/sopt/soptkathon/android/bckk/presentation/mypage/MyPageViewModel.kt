@@ -11,21 +11,21 @@ import kotlinx.coroutines.launch
 
 class MyPageViewModel : ViewModel() {
 
-    private val _userDto = MutableLiveData<UserResponse.UserDto>()
-    val userDto: LiveData<UserResponse.UserDto> get() = _userDto
+    private val _userDto = MutableLiveData<UserResponse>()
+    val userDto: LiveData<UserResponse> get() = _userDto
 
-    private val _postDtoList = MutableLiveData<List<UserResponse.UserDto.PostDto>>()
-    val postDtoList: LiveData<List<UserResponse.UserDto.PostDto>> get() = _postDtoList
+    private val _postDtoList = MutableLiveData<List<UserResponse.PostDto>>()
+    val postDtoList: LiveData<List<UserResponse.PostDto>> get() = _postDtoList
 
     fun getUserInfo(ssaId: String) {
         viewModelScope.launch {
             runCatching {
                 ServicePool.heungService.getUserInfo(ssaId)
             }.onSuccess { response ->
-                _userDto.value = response.data.userDto
-                _postDtoList.value = response.data.userDto.postListDto
+                _userDto.value = response.data ?: UserResponse()
+                _postDtoList.value = response.data?.postList ?: listOf()
             }.onFailure {
-                Log.e("NetworkTest", "error:$it")
+                Log.e("NetworkTest1", "error:$it")
             }
         }
     }

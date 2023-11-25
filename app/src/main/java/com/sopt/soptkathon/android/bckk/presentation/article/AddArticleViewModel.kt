@@ -17,7 +17,10 @@ class AddArticleViewModel : ViewModel() {
         viewModelScope.launch {
             runCatching {
                 ServicePool.heungService.postArticles(
-                    SharedPreferenceContainer.getLocalUserId(),
+                    SharedPreferenceContainer.getLocalUserId() ?: let {
+                        mutableList.postValue(false)
+                        return@launch
+                    },
                     postImg = imageRequestBody,
                     postContent = content.toRequestBody("text/plain".toMediaType()),
                 )
