@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PostDisLikeRequest(
     @SerialName("postIdList")
-    val postIdList: List<Int>,
+    val postIdList: List<Long>,
 )

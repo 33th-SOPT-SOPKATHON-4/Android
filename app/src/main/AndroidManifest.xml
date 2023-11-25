@@ -22,6 +22,9 @@
             android:name=".presentation.home.HomeActivity"
             android:exported="false" />
         <activity
+            android:name=".presentation.selector.SelectorActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.article.AddArticleActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
