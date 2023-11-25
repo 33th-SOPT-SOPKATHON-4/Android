@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.sopt.soptkathon.android.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,23 +12,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SoptkathonThirtyThreeAndroidFour"
         android:usesCleartextTraffic="true">
+
+        <!-- MyPageActivity를 앱 실행 시 기본 액티비티로 설정 -->
         <activity
-            android:name=".presentation.selector.SelectorActivity"
-            android:exported="true" />
-        <activity
-            android:name=".presentation.article.AddArticleActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.main.MainActivity"
+            android:name=".presentation.mypage.MyPageActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.App.Starting">
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.selector.SelectorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.home.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.article.AddArticleActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- MainActivity에서는 LAUNCHER intent-filter 제거 -->
+        <activity
+            android:name=".presentation.main.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.App.Starting">
+            <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
+        </activity>
+
         <activity
             android:name=".ui.ComposeActivity"
             android:exported="false"

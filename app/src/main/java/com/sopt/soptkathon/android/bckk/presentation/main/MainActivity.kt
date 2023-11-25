@@ -1,17 +1,23 @@
 package com.sopt.soptkathon.android.bckk.presentation.main
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import coil.load
 import com.sopt.soptkathon.android.bckk.R
 import com.sopt.soptkathon.android.bckk.base.BindActivity
 import com.sopt.soptkathon.android.bckk.databinding.ActivityMainBinding
+import com.sopt.soptkathon.android.bckk.presentation.article.AddArticleActivity
 
 class MainActivity : BindActivity<ActivityMainBinding>() {
+
+    private val viewModel by viewModels<MainViewModel>()
 
     override fun setBinding(layoutInflater: LayoutInflater): ActivityMainBinding {
         return ActivityMainBinding.inflate(layoutInflater)
@@ -21,9 +27,18 @@ class MainActivity : BindActivity<ActivityMainBinding>() {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+        startActivity(Intent(this, AddArticleActivity::class.java))
         initSplashAnimation(splashScreen)
-        binding.ivMain.load(R.drawable.ic_launcher_background)
+        login()
+    }
+
+    @SuppressLint("HardwareIds")
+    private fun login() {
+        val androidId = Settings.Secure.getString(
+            contentResolver,
+            Settings.Secure.ANDROID_ID,
+        ) ?: return
+        viewModel.login(androidId)
     }
 
     private fun initSplashAnimation(splashScreen: SplashScreen) {
