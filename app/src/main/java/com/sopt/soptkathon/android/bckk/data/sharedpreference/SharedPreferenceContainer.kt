@@ -64,9 +64,7 @@ object SharedPreferenceContainer {
         sharedPreferences.edit().putString(SP_USER_ID, value).apply()
     }
 
-    fun getLocalUserId() {
-        sharedPreferences.getString(SP_USER_ID, "")
-    }
+    fun getLocalUserId(): String? = sharedPreferences.getString(SP_USER_ID, "")
 }
 
 val sharedPreferences: SharedPreferences

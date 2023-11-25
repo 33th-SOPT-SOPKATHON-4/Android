@@ -77,27 +77,74 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <ImageButton
+    <ImageView
         android:id="@+id/ib_home_go_selector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="30dp"
         android:contentDescription="질투하기 버튼"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/envy_total_green"
         app:layout_constraintBottom_toTopOf="@+id/ib_home_go_add_article"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageButton
+<!--    <TextView-->
+<!--        android:id="@+id/tv_home_btn_1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="현재 자랑 티켓이 00개 모였어요!"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/ib_home_go_selector"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/ib_home_go_selector"-->
+<!--        android:layout_marginBottom="2dp"-->
+
+<!--        />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ic_arrow1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_btn_arrow"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/ib_home_go_selector"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/ib_home_go_selector"-->
+
+<!--        />-->
+
+    <ImageView
         android:id="@+id/ib_home_go_add_article"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="145dp"
         android:contentDescription="자랑하기  버튼"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/boast_total_pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_home_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현재 자랑 티켓이 00개 모였어요!"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_home_2"
+        android:layout_marginBottom="2dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_home_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나를 한 번 자랑해 볼까요?"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="79dp"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
