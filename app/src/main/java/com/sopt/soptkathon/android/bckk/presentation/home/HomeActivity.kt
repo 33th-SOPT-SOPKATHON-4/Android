@@ -3,6 +3,7 @@ package com.sopt.soptkathon.android.bckk.presentation.home
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import com.sopt.soptkathon.android.bckk.base.BindActivity
 import com.sopt.soptkathon.android.bckk.databinding.ActivityHomeBinding
 
@@ -19,12 +20,13 @@ class HomeActivity : BindActivity<ActivityHomeBinding>() {
 
         homeClickListener()
 
-        homeViewModel.getUserInfo("userId")
-        homeViewModel.userInfoResult.observe(
+        homeViewModel.getUserInfo("userId") // TODO 유저 아이디 추가 String
+        homeViewModel.ticketCount.observe(
             this,
-        ) {
-            binding.tvHomeTicketCount.text = it.toString()
-        }
+            Observer { ticketCount ->
+                binding.tvHomeTicketCount.text = ticketCount.toString()
+            },
+        )
     }
 
     private fun homeClickListener() {
