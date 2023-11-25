@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sopt.soptkathon.android.bckk.base.BindActivity
 import com.sopt.soptkathon.android.bckk.databinding.ActivityMyPageBinding
 
-class MyPageActivity: BindActivity<ActivityMyPageBinding>() {
+class MyPageActivity : BindActivity<ActivityMyPageBinding>() {
 
     private lateinit var viewModel: MyPageViewModel
     private lateinit var myPageAdapter: MyPageAdapter
