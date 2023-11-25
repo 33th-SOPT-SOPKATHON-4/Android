@@ -2,10 +2,13 @@ package com.sopt.soptkathon.android.bckk.presentation.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.activity.viewModels
 import com.sopt.soptkathon.android.bckk.base.BindActivity
 import com.sopt.soptkathon.android.bckk.databinding.ActivityHomeBinding
 
 class HomeActivity : BindActivity<ActivityHomeBinding>() {
+    private val homeViewModel by viewModels<HomeViewModel>()
+
     override fun setBinding(layoutInflater: LayoutInflater): ActivityHomeBinding {
         return ActivityHomeBinding.inflate(layoutInflater)
     }
@@ -15,6 +18,14 @@ class HomeActivity : BindActivity<ActivityHomeBinding>() {
         setContentView(binding.root)
 
         homeClickListener()
+
+        homeViewModel.getUserInfo("userId")
+        homeViewModel.userInfoResult.observe(
+            this,
+            {
+                binding.tvHomeTicketCount.text = it.toString()
+            },
+        )
     }
 
     private fun homeClickListener() {

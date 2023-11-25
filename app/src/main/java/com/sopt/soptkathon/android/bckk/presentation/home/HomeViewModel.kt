@@ -16,10 +16,10 @@ class HomeViewModel : ViewModel() {
     val isGoArticleButtonClicked = MutableLiveData<Boolean>()
 
     // api로 뽑아야 하는 정보 : 티켓수만! 티켓수가 1개 이상이면 자랑하기 이동 가능, 버튼 활성화
-    fun getUserInfo() {
+    fun getUserInfo(userId: String) {
         viewModelScope.launch {
             runCatching {
-                ServicePool.heungService.getUserInfo("1") // TODO 유저 아이디 추가 String
+                ServicePool.heungService.getUserInfo(userId) // TODO 유저 아이디 추가 String
             }.onSuccess { userResponse ->
                 Log.d("NetworkTest", userResponse.toString())
                 _userInfoResult.value = true
