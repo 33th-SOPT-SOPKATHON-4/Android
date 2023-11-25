@@ -3,7 +3,6 @@ package com.sopt.soptkathon.android.bckk.presentation.login
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.sopt.soptkathon.android.bckk.base.BindFragment
 import com.sopt.soptkathon.android.bckk.databinding.ActivityLoginBinding
 
@@ -19,6 +18,5 @@ class LoginFragment : BindFragment<ActivityLoginBinding>() {
     }
 
     private fun initView() {
-
     }
 }
