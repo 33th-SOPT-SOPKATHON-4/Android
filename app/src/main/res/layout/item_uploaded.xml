@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_item_uploaded_background"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:background="#000000"
+        android:layout_marginEnd="20dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toEndOf="@id/iv_item_uploaded_picture"
+        app:layout_constraintTop_toTopOf="@id/iv_item_uploaded_picture"  />
+
+    <ImageView
+        android:id="@+id/iv_item_uploaded_picture"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_item_uploaded_picture_gd"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/rectangle_item_uploaded"
+        app:layout_constraintStart_toStartOf="@id/iv_item_uploaded_picture"
+        app:layout_constraintTop_toTopOf="@id/iv_item_uploaded_picture" />
+
+    <TextView
+        android:id="@+id/tv_item_uploaded_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:ellipsize="end"
+        android:lineHeight="18sp"
+        android:maxLines="1"
+        android:text="11월 15일"
+        android:textColor="#B6B6B6"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_item_uploaded_description"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_uploaded_description" />
+
+
+    <ImageView
+        android:id="@+id/iv_item_uploaded_envy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="140dp"
+        android:layout_marginBottom="2dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/rectangle_item_uploaded"
+        app:layout_constraintEnd_toEndOf="@id/iv_item_uploaded_picture"
+        app:layout_constraintBottom_toBottomOf="@id/iv_item_uploaded_picture" />
+
+    <TextView
+        android:id="@+id/tv_item_uploaded_envy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="222"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@id/iv_item_uploaded_background"
+        app:layout_constraintStart_toStartOf="@id/iv_item_uploaded_background"
+        app:layout_constraintTop_toBottomOf="@id/iv_item_uploaded_background" />
+
+    <TextView
+        android:id="@+id/tv_item_uploaded_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginBottom="39dp"
+        android:letterSpacing="-0.12"
+        android:lineHeight="19.2sp"
+        android:text="나는 말하는 감자입니다."
+        android:textColor="#FFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_item_uploaded_picture"
+        app:layout_constraintStart_toStartOf="@id/iv_item_uploaded_picture" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
