@@ -56,8 +56,8 @@ class MainActivity : BindActivity<ActivityMainBinding>() {
                 override fun onAnimationRepeat(animation: Animation) {}
             })
             splashScreenView.startAnimation(fadeOut)
-            intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
+//            intent = Intent(this, HomeActivity::class.java)
+//            startActivity(intent)
         }
     }
 }
