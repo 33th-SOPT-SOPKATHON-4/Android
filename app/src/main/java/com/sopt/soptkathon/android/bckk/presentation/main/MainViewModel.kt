@@ -14,6 +14,7 @@ class MainViewModel : ViewModel() {
             runCatching {
             }.onSuccess {
                 SharedPreferenceContainer.setLocalUserId(androidId)
+                SharedPreferenceContainer.getLocalUserId()
                 Log.d("MainViewModel", "login: $it")
             }.onFailure {
                 Log.e("MainViewModel", "login: $it")
