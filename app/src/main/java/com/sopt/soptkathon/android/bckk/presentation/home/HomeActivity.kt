@@ -3,7 +3,6 @@ package com.sopt.soptkathon.android.bckk.presentation.home
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import com.sopt.soptkathon.android.bckk.R
 import com.sopt.soptkathon.android.bckk.base.BindActivity
 import com.sopt.soptkathon.android.bckk.databinding.ActivityHomeBinding
@@ -24,21 +23,19 @@ class HomeActivity : BindActivity<ActivityHomeBinding>() {
         homeViewModel.getUserInfo("userId") // TODO 유저 아이디 추가 String
         homeViewModel.ticketCount.observe(
             this,
-            Observer { ticketCount ->
-                binding.tvHomeTicketCount.text = ticketCount.toString()
-            },
-        )
+        ) { ticketCount ->
+            binding.tvHomeTicketCount.text = ticketCount.toString()
+        }
         homeViewModel.isGoArticleButtonClicked.observe(
             this,
-            Observer { isButtonClicked ->
-                binding.ibHomeGoAddArticle.isEnabled = isButtonClicked
-                if (isButtonClicked) {
-                    binding.ibHomeGoAddArticle.setImageResource(R.drawable.ic_launcher_foreground)
-                } else {
-                    binding.ibHomeGoAddArticle.setImageResource(R.drawable.ic_launcher_background)
-                }
-            },
-        )
+        ) { isButtonClicked ->
+            binding.ibHomeGoAddArticle.isEnabled = isButtonClicked
+            if (isButtonClicked) {
+                binding.ibHomeGoAddArticle.setImageResource(R.drawable.ic_launcher_foreground)
+            } else {
+                binding.ibHomeGoAddArticle.setImageResource(R.drawable.ic_launcher_background)
+            }
+        }
     }
 
     private fun homeClickListener() {
