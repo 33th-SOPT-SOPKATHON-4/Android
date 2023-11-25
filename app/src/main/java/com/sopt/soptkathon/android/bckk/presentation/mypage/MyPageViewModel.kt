@@ -17,7 +17,7 @@ class MyPageViewModel : ViewModel() {
     private val _postDtoList = MutableLiveData<List<UserResponse.UserDto.PostDto>>()
     val postDtoList: LiveData<List<UserResponse.UserDto.PostDto>> get() = _postDtoList
 
-    fun fetchData(ssaId: String) {
+    fun getUserInfo(ssaId: String) {
         viewModelScope.launch {
             runCatching {
                 ServicePool.heungService.getUserInfo(ssaId)
