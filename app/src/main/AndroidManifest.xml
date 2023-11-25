@@ -13,6 +13,9 @@
         android:theme="@style/Theme.SoptkathonThirtyThreeAndroidFour"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".presentation.home.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.article.AddArticleActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
