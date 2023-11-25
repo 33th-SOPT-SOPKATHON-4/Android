@@ -30,14 +30,12 @@ class MyPageAdapter(private val postList: List<UserResponse.UserDto.PostDto>) :
             with(binding) {
                 binding.ivItemUploadedPicture.load(postDto.postImg) {
                     crossfade(true)
-                    error(R.drawable.ic_launcher_background)
+                    error(R.drawable.rectangle_item_uploaded_blank)
                 }
                 tvItemUploadedDate.text = postDto.createdDateTime
                 tvItemUploadedEnvy.text = postDto.postDislikeReactionCount.toString()
                 tvItemUploadedDescription.text = postDto.postContent
             }
-
         }
-
     }
 }
