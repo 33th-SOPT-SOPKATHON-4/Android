@@ -1,11 +1,14 @@
 package com.sopt.soptkathon.android.bckk.presentation.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.activity.viewModels
 import com.sopt.soptkathon.android.bckk.R
 import com.sopt.soptkathon.android.bckk.base.BindActivity
 import com.sopt.soptkathon.android.bckk.databinding.ActivityHomeBinding
+import com.sopt.soptkathon.android.bckk.presentation.article.AddArticleActivity
+import com.sopt.soptkathon.android.bckk.presentation.mypage.MyPageActivity
 
 class HomeActivity : BindActivity<ActivityHomeBinding>() {
     private val homeViewModel by viewModels<HomeViewModel>()
@@ -18,7 +21,26 @@ class HomeActivity : BindActivity<ActivityHomeBinding>() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        homeClickListener()
+        binding.run {
+            ibHomeGoMyPage.setOnClickListener {
+                // TODO 마이페이지 화면 전환
+                intent = Intent(applicationContext, MyPageActivity::class.java)
+                startActivity(intent)
+            }
+
+            ibHomeGoAddArticle.setOnClickListener {
+                // TODO 게시글 작성 화면 전환
+                intent = Intent(applicationContext, AddArticleActivity::class.java)
+                startActivity(intent)
+            }
+
+            ibHomeGoSelector.setOnClickListener {
+                // TODO 질투 선택 화면 전환
+            }
+            tvHomeTicketCount.setOnClickListener {
+                // 티켓 수
+            }
+        }
 
         homeViewModel.getUserInfo("userId") // TODO 유저 아이디 추가 String
         homeViewModel.ticketCount.observe(
@@ -34,25 +56,6 @@ class HomeActivity : BindActivity<ActivityHomeBinding>() {
                 binding.ibHomeGoAddArticle.setImageResource(R.drawable.ic_launcher_foreground)
             } else {
                 binding.ibHomeGoAddArticle.setImageResource(R.drawable.ic_launcher_background)
-            }
-        }
-    }
-
-    private fun homeClickListener() {
-        binding.run {
-            ibHomeGoMyPage.setOnClickListener {
-                // TODO 마이페이지 화면 전환
-            }
-
-            ibHomeGoAddArticle.setOnClickListener {
-                // TODO 게시글 작성 화면 전환
-            }
-
-            ibHomeGoSelector.setOnClickListener {
-                // TODO 질투 선택 화면 전환
-            }
-            tvHomeTicketCount.setOnClickListener {
-                // 티켓 수
             }
         }
     }
