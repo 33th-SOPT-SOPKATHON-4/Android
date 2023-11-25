@@ -9,6 +9,8 @@
 3) 타 유저가 공유한 자랑에 질투하기를 3번 반응 → 유저가 자랑할 수 있는 티켓 1개 생성
 4) 유저가 공유한 자랑들, 각 자랑거리 당 ‘질투나요’ 횟수 모아보기.
 
+## ✏️ 팀원 역할 분담
+
 <h2> 😱개발자들 </h2>
 
 <table align="center">
@@ -75,6 +77,21 @@
 ## 📝컨벤션 규칙 및 브랜치 전략
 [📘SOPTKATHON Android 4조 노션 페이지 링크📘](https://titanium-antique-5c8.notion.site/82c94939022248c285bfc8b2402c3cdf?pvs=4)
 
+## 📁 폴더링
+```
+📂 com.sopt.soptkathon.android.bckk
+┣ 📂 base
+┣ 📂 data
+┃ ┣ 📂 api
+┣ 📂 presentation
+┃ ┣ 📂 article
+┃ ┣ 📂 selector
+┃ ┣ 📂 mypage
+┃ ┣ 📂 home
+┣ 📂 ui
+┃ ┣ 📂 theme
+┣ 📂 util
+```
 
 ## 📷Before 사진📷
 ![KakaoTalk_Photo_2023-11-25-20-58-15](https://github.com/33th-SOPT-SOPKATHON-4/Android/assets/93872496/30c79c78-252a-41fb-b4fe-33db98ffb4b6)
